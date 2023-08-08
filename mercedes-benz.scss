@@ -1,0 +1,859 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+$fontPlay: "Playfair Display";
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  max-width: 100%;
+  min-width: 1519px;
+  color: #ffff;
+  background-color: #000;
+  @include column-center();
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  nav {
+    width: 100%;
+    height: 108px;
+    background-color: #000;
+    z-index: 9999;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    padding: 0 144px 22px 144px;
+    @include space-between();
+
+    .logo {
+      width: 250px;
+      height: 100%;
+      @include space-between();
+      align-items: flex-end;
+    }
+
+    .right {
+      width: 787px;
+      height: 100%;
+      @include column();
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .info {
+        width: 315px;
+        height: 25px;
+        margin-top: 10px;
+        @include space-between();
+
+        a {
+          color: #fff;
+          @include center();
+
+          svg {
+            transition: 0.2s;
+            margin: -2px 10px 0 0;
+          }
+        }
+
+        a:hover {
+          color: #009dff;
+
+          svg {
+            transition: 0.2s;
+          }
+        }
+      }
+
+      ul {
+        width: 100%;
+        height: 30px;
+        @include space-between();
+        align-items: flex-end;
+
+        li {
+          a {
+            color: #fff;
+          }
+
+          a:hover {
+            color: #009dff;
+          }
+        }
+
+        li:first-child,
+        li:last-child {
+          a:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .right_scrolls {
+    width: 50px;
+    height: 140px;
+    position: fixed;
+    right: 0;
+    z-index: 99999;
+    top: 50%;
+    transform: translateY(-50%);
+    // overflow: hidden;
+    @include column();
+
+    a {
+      width: 274px;
+      height: 44px;
+      padding-left: 10px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background-color: #1f1f1f;
+      position: absolute;
+      left: 0;
+      transition: 0.6s;
+
+      svg {
+        margin-right: 7px;
+      }
+    }
+
+    a:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    a:last-child {
+      bottom: 0;
+
+      i {
+        transition: 0.2s;
+        font-size: 27px;
+        margin: 15px;
+      }
+
+      i:hover {
+        transition: 0.2s;
+        color: #009dff;
+      }
+    }
+
+    a:hover {
+      transition: 0.6s;
+      left: -224px;
+    }
+  }
+
+  .carousel {
+    width: 100%;
+    height: 651px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .icons {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      @include space-between();
+      padding: 0 80px;
+
+      i {
+        cursor: pointer;
+        font-size: 35px;
+      }
+
+      i:hover {
+        color: #ddd;
+      }
+    }
+
+    .sect {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding: 60px 135px 0 135px;
+      background-size: cover;
+      background-position: center;
+
+      h1 {
+        font-size: 48px;
+        font-weight: 300;
+        margin-bottom: 25px;
+        font-family: "Playfair Display";
+      }
+
+      a {
+        color: #ddd;
+        background-color: #333333;
+        padding: 7px 20px;
+      }
+
+      a:hover {
+        background-color: #272727;
+      }
+    }
+
+    .one {
+      transform: translateX(-100%);
+      background-image: url("/images/mercedes-benz-g-class_3400x1440.jpeg");
+      animation: one 35s ease-out infinite;
+    }
+
+    @keyframes one {
+      0% {
+        transform: translateX(-100%);
+      }
+      2% {
+        transform: translateX(0%);
+      }
+      23% {
+        transform: translateX(0%);
+      }
+      25% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .two {
+      transform: translateX(-100%);
+      background-image: url("/images/01_mercedes-benz_classic_history_w116_2022_3400x1440.jpeg");
+      animation: two 35s ease-out infinite;
+
+      h1 {
+        color: #333;
+      }
+    }
+
+    @keyframes two {
+      0% {
+        transform: translateX(-100%);
+      }
+      23% {
+        transform: translateX(-100%);
+      }
+      25% {
+        transform: translateX(0%);
+      }
+      48% {
+        transform: translateX(0%);
+      }
+      50% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .three {
+      transform: translateX(-100%);
+      background-image: url("/images/mercedes-benz-vision-eqxx-2022-3400x1440.jpeg");
+      animation: three 35s ease-out infinite;
+    }
+
+    @keyframes three {
+      0% {
+        transform: translateX(-100%);
+      }
+      48% {
+        transform: translateX(-100%);
+      }
+      50% {
+        transform: translateX(0%);
+      }
+      73% {
+        transform: translateX(0%);
+      }
+      75% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .four {
+      transform: translateX(-100%);
+      background-image: url("/images/mercedes-benz-the-all-electric-eqe-2021-v295-3400x1440.jpeg");
+      animation: four 35s ease-out infinite;
+
+      p {
+        font-size: 14px;
+        margin: 250px 0 14px 0;
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+
+    @keyframes four {
+      0% {
+        transform: translateX(-100%);
+      }
+      73% {
+        transform: translateX(-100%);
+      }
+      75% {
+        transform: translateX(0%);
+      }
+      98% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  .input_wrap {
+    width: 100%;
+    height: 92px;
+    background-color: #141414;
+    @include center();
+
+    form {
+      width: 1188px;
+      height: 40px;
+      background-color: #ececec;
+      @include space-between();
+
+      input {
+        width: 95%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        padding: 4px 15px 3px;
+      }
+
+      svg {
+        color: #333;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .welcome {
+    width: 100%;
+    height: 521px;
+    padding: 50px 0;
+    @include center();
+
+    .wrap {
+      width: 1280px;
+      height: 100%;
+      @include column-center();
+      justify-content: space-between;
+      padding: 60px 0;
+      text-align: center;
+
+      h1 {
+        font-size: 34px;
+        line-height: 44px;
+        font-weight: 400;
+        font-family: $fontPlay;
+      }
+
+      p {
+        line-height: 22px;
+        font-size: 14px;
+
+        a {
+          color: #00adef;
+        }
+
+        a:hover {
+          color: #0089df;
+          text-decoration: underline;
+        }
+      }
+
+      button {
+        background-color: #00adef;
+        padding: 0 12px;
+        height: 35px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 14px;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: #0089df;
+      }
+    }
+  }
+
+  .images {
+    width: 80%;
+    @include center();
+
+    .img {
+      width: 300px;
+      height: 168px;
+      margin: 0 9px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .img::before {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      width: 100%;
+      transition: 0.3s;
+      height: 8px;
+      background-color: #00adef;
+    }
+
+    .img:hover::before {
+      transition: 0.3s;
+      bottom: 0;
+    }
+  }
+
+  .btns {
+    width: 80%;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    @include center();
+
+    a {
+      font-size: 14px;
+      margin: 0 20px;
+      padding: 8px 0;
+      color: #fff;
+      position: relative;
+
+      svg {
+        margin-right: 15px;
+      }
+    }
+
+    a:first-child::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: #00adef;
+    }
+
+    a:first-child {
+      color: #00adef;
+    }
+
+    a:hover {
+      color: #00adef;
+    }
+  }
+
+  .grid_first {
+    width: 100%;
+    height: 1132px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+
+    .box {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      align-self: center;
+      cursor: pointer;
+      position: relative;
+
+      .title {
+        width: 100%;
+        height: 140px;
+        background-color: rgba(0, 0, 0, 0.35);
+        padding: 13px 20px 0 31px;
+        position: absolute;
+        bottom: -90px;
+        transition: 0.5s ease-in-out;
+
+        h1 {
+          font-size: 24px;
+          font-family: $fontPlay;
+          font-weight: 500;
+          line-height: 25px;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 20px;
+          margin-top: 2px;
+          opacity: 0;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .box:hover {
+      .title {
+        bottom: 0;
+        background-color: #00000099;
+        transition: 0.5s ease-in-out;
+
+        p {
+          opacity: 1;
+          transition: 0.5s;
+          transition-delay: 0.1s;
+        }
+      }
+    }
+
+    .box1 {
+      background-image: url("./images/Mercedes-Benz-EQ-Formula_E_Team_santiago_teserjpeg.jpeg");
+      grid-column: 1/3;
+      grid-row: 1/3;
+    }
+    .box2 {
+      background-image: url("./images/mercedes-eq-run-2022-07-16-9jpeg.jpeg");
+    }
+    .box3 {
+      background-image: url("./images/mercedes-eq-formula-e-team-silver-arrow-02-season-8-id09jpeg.jpeg");
+    }
+    .box4 {
+      background-image: url("./images/01_mercedes-benz_classic_history_w116_2022_3400x1440.jpeg");
+    }
+    .box5 {
+      background-image: url("./images/Akkodis-branding-car-16-9.jpeg");
+    }
+    .box6 {
+      background-image: url("./images/Headerbild_Mobil.jpeg");
+    }
+    .box7 {
+      background-image: url("./images/mercedes-benz-eqe-v295-teaser-3400x1912-08-2021.jpeg");
+    }
+    .box8 {
+      background-image: url("./images/individualverbrauch_alternative.jpeg");
+    }
+    .box9 {
+      background-image: url("./images/M184789JPG.jpeg");
+    }
+  }
+
+  .grid_second {
+    width: 100%;
+    height: 790px;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+
+    .box {
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+
+      .title {
+        width: 100%;
+        height: 130px;
+        background-color: rgba(0, 0, 0, 0.35);
+        padding: 13px 20px 0 31px;
+        position: absolute;
+        bottom: -80px;
+        transition: 0.5s ease-in-out;
+
+        h1 {
+          font-size: 24px;
+          font-family: $fontPlay;
+          font-weight: 500;
+          line-height: 25px;
+        }
+
+        p {
+          font-size: 14px;
+          margin-top: 2px;
+          opacity: 0;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .box:hover {
+      cursor: pointer;
+
+      .title {
+        bottom: 0;
+        background-color: #00000099;
+        transition: 0.5s ease-in-out;
+
+        p {
+          opacity: 1;
+          transition: 0.5s;
+          transition-delay: 0.1s;
+        }
+      }
+    }
+
+    .box1 {
+      background-image: url("./images/mercedes-eq-formula-e-team-nyck-de-vries-2022_V2jpeg.jpeg");
+      grid-column: 1/3;
+      grid-row: 1/3;
+    }
+
+    .box2 {
+      background-image: url("./images/mercedes-eq-formula-e-team-stoffel-vandoorne-2022_V2jpeg.jpeg");
+    }
+    .box3 {
+      background-image: url("./images/01-mercedes-benz-museum-wimmelbook-2560x1440.jpeg");
+    }
+    .box4 {
+      background-image: url("./images/mercedes-benz-eqs-v297-teaser-2560x1440-03-2021.jpeg");
+    }
+    .box5 {
+      background-image: url("./images/Studio-Odeonsplatz-Silver-Garage-Transit-2560x1440.jpeg");
+    }
+  }
+
+  > button {
+    width: 140px;
+    height: 34px;
+    transition: 0.3s;
+    color: #999;
+    border: none;
+    background: linear-gradient(#2d2d2d, #212121);
+    margin: 25px 0 60px 0;
+  }
+
+  > button:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    background: linear-gradient(#242424, #1a1a1a);
+  }
+
+  footer {
+    width: 100%;
+    padding: 0 30px;
+    @include column();
+
+    > ul {
+      width: 100%;
+      height: 22px;
+      margin: 35px 0 21px 0;
+      display: flex;
+
+      > li {
+        font-size: 14px;
+        margin-right: 20px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 14px;
+
+      a {
+        color: #009dff;
+      }
+
+      a:hover {
+        color: #0089df;
+        text-decoration: underline;
+      }
+    }
+
+    .list {
+      width: 100%;
+      height: 346px;
+      margin-top: 21px;
+
+      .headings {
+        width: 100%;
+        border-bottom: 1px solid #333;
+        padding-bottom: 35px;
+        @include space-between();
+
+        li {
+          width: 25%;
+          font-size: 34px;
+          line-height: 44px;
+          font-family: $fontPlay;
+          font-weight: 400;
+        }
+      }
+
+      .ul_wrap {
+        width: 100%;
+        height: 266px;
+        padding-top: 40px;
+        @include space-between();
+
+        ul {
+          width: 25%;
+          height: 100%;
+
+          li {
+            width: 100%;
+
+            a {
+              font-size: 14px;
+              line-height: 22px;
+              color: #999;
+            }
+
+            a:hover {
+              color: #0089df;
+            }
+          }
+        }
+      }
+    }
+
+    > h1 {
+      font-size: 34px;
+      font-family: $fontPlay;
+      line-height: 44px;
+      font-weight: 400;
+      padding-bottom: 22px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid #333;
+    }
+
+    > .icons {
+      width: 100%;
+      height: 50px;
+      padding-bottom: 70px;
+      display: flex;
+      border-bottom: 1px solid #333;
+      margin-bottom: 30px;
+
+      i {
+        font-size: 30px;
+        transition: 0.2s;
+        margin: 10px 40px 10px 5px;
+        color: #999;
+      }
+
+      i:hover {
+        cursor: pointer;
+        transition: 0.2s;
+        color: #0089df;
+      }
+    }
+
+    > span {
+      font-size: 14px;
+      line-height: 22px;
+      width: 100%;
+      margin: 30px 0 50px 0;
+      padding-top: 30px;
+      color: #999;
+      border-top: 1px solid #333;
+
+      a {
+        color: #fff;
+      }
+
+      a:hover {
+        color: #009dff;
+      }
+    }
+
+    .bottom {
+      width: 100%;
+      height: 42px;
+      font-size: 14px;
+      @include space-between();
+      align-items: flex-start;
+
+      .language {
+        width: 142px;
+        @include space-between();
+
+        a {
+          color: #00adef;
+          padding-right: 17px;
+          position: relative;
+        }
+
+        a::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          width: 1px;
+          height: 11px;
+          background-color: #00adef;
+        }
+
+        a:hover {
+          color: #0089df;
+        }
+      }
+
+      > ul {
+        display: flex;
+
+        a {
+          color: #636363;
+          text-transform: capitalize;
+          margin-left: 20px;
+
+          i {
+            margin-left: 5px;
+          }
+        }
+
+        a:hover {
+          color: #00adef;
+        }
+      }
+    }
+  }
+}
